@@ -1,0 +1,11 @@
+.update-user {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 350px;
+  justify-content: space-evenly;
+}
+
+.update-user form {
+  width: 100%;
+}

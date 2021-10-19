@@ -1,0 +1,35 @@
+{
+  "name": "tsr-app",
+  "version": "1.0.0",
+  "description": "e-commerce",
+  "main": "index.js",
+  "engines": {
+    "node": "16.7.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& npm run server",
+    "prod": "SET NODE_ENV=PRODUCTION& npm run server",
+    "seeder": "node server/utils/seeder.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "saadullahkh",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.27.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

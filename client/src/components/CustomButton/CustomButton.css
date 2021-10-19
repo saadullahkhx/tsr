@@ -1,0 +1,19 @@
+.custom-button {
+  border: none;
+  outline: 0;
+  padding: 0.5rem;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 8rem;
+  font-size: 0.8rem;
+}
+
+.custom-button:hover {
+  opacity: 0.8;
+}
+
+.custom-button:disabled {
+  cursor: not-allowed;
+}

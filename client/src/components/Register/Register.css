@@ -1,0 +1,22 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 340px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.register-form span {
+  color: blue;
+  margin: 1rem 0px;
+  cursor: pointer;
+}
+
+.register-form span:hover {
+  text-decoration: underline;
+}
+
+.register-form p {
+  margin: 1rem;
+}

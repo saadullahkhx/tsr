@@ -1,0 +1,20 @@
+.custom-input {
+  padding: 10px 26px;
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-icon {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 475px) {
+  .custom-input {
+    width: 70%;
+  }
+}

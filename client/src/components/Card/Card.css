@@ -1,0 +1,52 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  margin: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  width: 280px;
+  height: 500px;
+}
+
+.card span {
+  font-size: 0.9rem;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.rating-and-reviews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.4);
+}
+
+.price {
+  color: black;
+  font-size: 18px;
+}
+
+.card img {
+  width: 250px;
+  height: 250px;
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+    width: 80%;
+    align-items: center;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    width: 100%;
+  }
+}

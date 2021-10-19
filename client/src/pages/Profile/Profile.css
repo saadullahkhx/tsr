@@ -1,0 +1,23 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  height: 400px;
+  justify-content: space-evenly;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.profile-details div {
+  margin: 0.5rem 0;
+}
+
+.profile-details .profile-buttons {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,108 @@
+.product-page {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  height: 550px;
+}
+.product-slider {
+  height: 400px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-details {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.product-details span {
+  color: grey;
+}
+
+.product-details h1 {
+  font-weight: 500;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+}
+
+.qty-and-cart {
+  display: flex;
+  align-items: center;
+}
+
+.qty-btn {
+  padding: 0 0.2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.qty-and-cart .custom-button {
+  margin-left: 0.5rem;
+}
+
+/* Slick Settings */
+.slick-slide img {
+  margin: auto;
+  width: 250px;
+  height: 250px;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+}
+.slick-prev {
+  left: 5%;
+}
+.slick-next {
+  right: 5%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.count {
+  width: 50px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .product-page {
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .product-details {
+    width: 100%;
+  }
+
+  .product-slider {
+    width: 100%;
+  }
+
+  .product-details span {
+    margin: 0.4rem 0;
+  }
+
+  .stock-status {
+    margin: 0.4rem 0;
+  }
+
+  .product-description {
+    margin: 0.4rem 0;
+  }
+}

@@ -1,0 +1,15 @@
+.shipping-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.shipping-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-top: 1rem;
+}

@@ -1,0 +1,15 @@
+.confirm-order-page {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.shipping-info div {
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 985px) {
+  .confirm-order-page {
+    flex-direction: column;
+  }
+}
