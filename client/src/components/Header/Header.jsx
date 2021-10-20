@@ -12,7 +12,9 @@ const Header = () => {
     setOpen(!open);
   };
 
-  const { user, loading } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <React.Fragment>
@@ -34,12 +36,18 @@ const Header = () => {
       {open ? (
         <div className="nav-menu-mb">
           {user ? (
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile" onClick={closeMenu}>
+              Profile
+            </Link>
           ) : (
-            !loading && <Link to="/login">Login</Link>
+            <Link to="/login" onClick={closeMenu}>
+              Login
+            </Link>
           )}
 
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" onClick={closeMenu}>
+            Cart
+          </Link>
         </div>
       ) : null}
     </React.Fragment>

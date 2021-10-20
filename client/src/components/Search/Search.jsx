@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BiSearch } from "react-icons/bi";
 import CustomInput from "../CustomInput/CustomInput";
 import { useHistory } from "react-router";
 
@@ -18,12 +17,11 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} className="search-box">
       <CustomInput
         placeholder="Search products..."
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <BiSearch className="search-icon" onClick={handleSearch} />
     </form>
   );
 };
