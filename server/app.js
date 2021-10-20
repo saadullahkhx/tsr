@@ -22,7 +22,7 @@ app.use("/api/v1", order);
 //Error Middleware to handle errors
 app.use(errorMiddleware);
 
-if (process.env.NODE_ENV === "PRODUCTION") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
   app.get("*", (req, res) => {

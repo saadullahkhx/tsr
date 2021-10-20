@@ -3,7 +3,7 @@ const ErrorHandler = require("../utils/errorHandler");
 module.exports = (error, req, res, next) => {
   error.statusCode = error.statusCode || 500;
 
-  if (process.env.NODE_ENV === "DEVELOPMENT") {
+  if (process.env.NODE_ENV === "development") {
     res.status(error.statusCode).json({
       success: false,
       error,
@@ -12,7 +12,7 @@ module.exports = (error, req, res, next) => {
     });
   }
 
-  if (process.env.NODE_ENV === "PRODUCTION") {
+  if (process.env.NODE_ENV === "production") {
     let errorCopy = { ...error };
     errorCopy.message = error.message;
 
