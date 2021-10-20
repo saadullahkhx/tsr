@@ -12,7 +12,7 @@
     "dev": "SET NODE_ENV=development& npm run server",
     "prod": "SET NODE_ENV=production& npm run server",
     "seeder": "node server/utils/seeder.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix client && npm run build --prefix client"
   },
   "author": "saadullahkh",
   "license": "ISC",
