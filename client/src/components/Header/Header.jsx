@@ -25,7 +25,7 @@ const Header = () => {
           {user ? (
             <Link to="/profile">Profile</Link>
           ) : (
-            !loading && <Link to="/login">Login</Link>
+            <Link to="/login">Login</Link>
           )}
           <Link to="/cart">Cart</Link>
         </div>
