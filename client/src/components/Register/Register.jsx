@@ -22,7 +22,9 @@ const Register = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { error, success, message } = useSelector((state) => state.user);
+  const { error, success, message, loading } = useSelector(
+    (state) => state.user
+  );
 
   useEffect(() => {
     if (success) {
@@ -84,7 +86,7 @@ const Register = () => {
           type="password"
           onChange={handleChange}
         />
-        <CustomButton>Register</CustomButton>
+        <CustomButton disabled={loading ? true : false}>Register</CustomButton>
         <p>
           Already have an account?{" "}
           <span onClick={() => history.push("/login")}>Login!</span>

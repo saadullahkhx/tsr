@@ -184,7 +184,7 @@ const UpdateProduct = ({ match }) => {
             <img src={img} key={img} alt="preview" width="55" height="55" />
           ))}
         </div>
-        <CustomButton disabled={loading ? true : false}>Create</CustomButton>
+        <CustomButton disabled={loading ? true : false}>Update</CustomButton>
       </form>
     </React.Fragment>
   );
