@@ -1,0 +1,9 @@
+.products-list {
+  display: flex;
+  margin-left: 200px;
+}
+
+.products-list .table-container {
+  width: 90vw;
+  border: none;
+}

@@ -3,8 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-const ProtectedRoute = ({ component: Component, ...otherProps }) => {
-  const { isAuthenticated, loading } = useSelector((state) => state.user);
+const ProtectedRoute = ({ component: Component, isAdmin, ...otherProps }) => {
+  const { isAuthenticated, loading, user } = useSelector((state) => state.user);
 
   return (
     <React.Fragment>
@@ -15,6 +15,10 @@ const ProtectedRoute = ({ component: Component, ...otherProps }) => {
             if (isAuthenticated === false) {
               toast.error("Please login to access this page");
               return <Redirect to="/login" />;
+            }
+
+            if (isAdmin && user.role !== "admin") {
+              return <Redirect to="/" />;
             }
 
             return <Component {...props} />;

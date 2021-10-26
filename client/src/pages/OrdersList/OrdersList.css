@@ -1,0 +1,10 @@
+.orders-list {
+  display: flex;
+  margin-left: 200px;
+}
+
+.orders-list .table-container {
+  width: 900px;
+  border: none;
+  text-align: center;
+}

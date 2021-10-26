@@ -1,0 +1,10 @@
+.users-admin-list {
+  display: flex;
+  margin-left: 200px;
+}
+
+.users-admin-list .table-container {
+  width: 900px;
+  border: none;
+  text-align: center;
+}

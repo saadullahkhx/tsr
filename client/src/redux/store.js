@@ -4,6 +4,11 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   productsReducers,
   productDetailsReducer,
+  newReviewReducer,
+  newProductReducer,
+  productReducer,
+  productReviewsReducer,
+  reviewReducer,
 } from "./reducers/productsReducers.js";
 
 import { cartReducer } from "./reducers/cartReducer.js";
@@ -12,9 +17,17 @@ import {
   userReducer,
   userProfileReducer,
   forgotPasswordReducer,
+  allUsersReducer,
+  userDetailsReducer,
 } from "./reducers/userReducer.js";
 
-import { newOrderReducer, myOrdersReducer } from "./reducers/ordersReducer";
+import {
+  allOrdersReducer,
+  newOrderReducer,
+  myOrdersReducer,
+  orderDetailsReducer,
+  orderReducer,
+} from "./reducers/ordersReducer";
 
 const reducer = combineReducers({
   products: productsReducers,
@@ -25,6 +38,16 @@ const reducer = combineReducers({
   cart: cartReducer,
   newOrder: newOrderReducer,
   myOrders: myOrdersReducer,
+  orderDetails: orderDetailsReducer,
+  newReview: newReviewReducer,
+  newProduct: newProductReducer,
+  product: productReducer,
+  allOrders: allOrdersReducer,
+  order: orderReducer,
+  allUsers: allUsersReducer,
+  userDetails: userDetailsReducer,
+  productReviews: productReviewsReducer,
+  review: reviewReducer,
 });
 
 let initialState = {

@@ -1,0 +1,46 @@
+.dashboard-page {
+  display: flex;
+  position: relative;
+  margin-left: 200px;
+}
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard-content {
+  padding: 1rem;
+}
+
+.d-card {
+  background-color: white;
+  border: 1px solid gray;
+  height: 250px;
+  width: 250px;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.d-card h3 {
+  font-weight: 500;
+}
+
+.card-total-amount {
+  background-color: green;
+  color: white;
+}
+
+.card-total-products,
+.card-total-orders,
+.card-total-users {
+  background-color: skyblue;
+}
+
+.card-out-of-stock {
+  background-color: yellowgreen;
+}

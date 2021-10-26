@@ -7,6 +7,10 @@ const {
   getSingleProduct,
   updateProduct,
   deleteProduct,
+  createProductReview,
+  getProductReviews,
+  deleteReview,
+  getAdminProducts,
 } = require("../controllers/productsController");
 
 const { isAuthenticated, authorizeRoles } = require("../middlewares/auth");
@@ -15,7 +19,19 @@ const { isAuthenticated, authorizeRoles } = require("../middlewares/auth");
 router.get("/products", getProducts);
 router.get("/products/:id", getSingleProduct);
 
+router.put("/review", isAuthenticated, createProductReview);
+router.get("/reviews", isAuthenticated, getProductReviews);
+router.delete("/reviews", isAuthenticated, deleteReview);
+
 //Admin/Protected routes
+
+router.get(
+  "/admin/products",
+  isAuthenticated,
+  authorizeRoles("admin"),
+  getAdminProducts
+);
+
 router.post(
   "/admin/products/new",
   isAuthenticated,
@@ -24,7 +40,7 @@ router.post(
 );
 
 router.put(
-  "/admin/products/:id",
+  "/admin/products/update/:id",
   isAuthenticated,
   authorizeRoles("admin"),
   updateProduct

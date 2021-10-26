@@ -21,6 +21,15 @@ import Cart from "./pages/Cart/Cart";
 import Shipping from "./pages/Shipping/Shipping";
 import { useSelector } from "react-redux";
 import ConfirmOrder from "./pages/ConfirmOrder/ConfirmOrder";
+import OrderDetails from "./pages/OrderDetails/OrderDetails";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import ProductsList from "./components/ProductsList/ProductsList";
+import UpdateProduct from "./pages/UpdateProduct/UpdateProduct";
+import OrdersList from "./pages/OrdersList/OrdersList";
+import UpdateOrder from "./pages/UpdateOrder/UpdateOrder";
+import UsersList from "./pages/UsersList/UsersList";
+import UpdateUser from "./pages/UpdateUser/UpdateUser";
+import ProductReviews from "./pages/ProductReviews/ProductReviews";
 
 function App() {
   useEffect(() => {
@@ -53,6 +62,57 @@ function App() {
           }
           exact
         />
+        <ProtectedRoute
+          path="/admin/orders"
+          isAdmin={true}
+          component={OrdersList}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/user/update/:id"
+          isAdmin={true}
+          component={UpdateUser}
+          exact
+        />
+
+        <ProtectedRoute
+          path="/admin/reviews"
+          isAdmin={true}
+          component={ProductReviews}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/dashboard"
+          isAdmin={true}
+          component={Dashboard}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/product/update/:id"
+          isAdmin={true}
+          component={UpdateProduct}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/products"
+          isAdmin={true}
+          component={ProductsList}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/order/update/:id"
+          component={UpdateOrder}
+          isAdmin={true}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/users"
+          component={UsersList}
+          isAdmin={true}
+          exact
+        />
+
+        <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
         <ProtectedRoute path="/profile" component={Profile} exact />
         <ToastContainer
           position="top-center"

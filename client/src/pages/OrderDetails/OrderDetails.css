@@ -1,0 +1,42 @@
+.order-details-page {
+  padding: 2rem;
+}
+
+.order-shipping-info,
+.order-page-status,
+.order-page-items {
+  margin: 2rem 0;
+}
+
+.order-shipping-info div {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.order-shipping-info div p {
+  margin-left: 10px;
+}
+
+.order-page-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.ordered-item {
+  display: flex;
+  border: 1px solid gray;
+  margin: 0.5rem 0;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ordered-item img,
+.ordered-item span {
+  width: 25%;
+}
+
+.ordered-item img {
+  width: 140px;
+  height: 140px;
+}

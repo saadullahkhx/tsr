@@ -1,0 +1,19 @@
+.reviews-list {
+  padding: 1rem;
+}
+
+.review-container {
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 1080px) {
+  .reviews-list {
+    margin-top: 10rem;
+  }
+}
+
+@media screen and (max-width: 985px) {
+  .reviews-list {
+    margin-top: -10rem;
+  }
+}

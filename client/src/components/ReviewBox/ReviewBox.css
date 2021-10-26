@@ -1,0 +1,22 @@
+.review-heading {
+  margin-top: 1rem;
+}
+
+.ratings-box {
+  outline: none;
+  cursor: pointer;
+}
+
+.rating-box-container {
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  /* border: 1px solid black; */
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-text {
+  padding: 0.5rem;
+}

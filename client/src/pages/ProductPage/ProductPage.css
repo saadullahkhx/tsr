@@ -1,9 +1,10 @@
 .product-page {
   display: flex;
   align-items: center;
-  margin: 4rem 0;
+  margin: 7rem 0;
   height: 550px;
 }
+
 .product-slider {
   height: 400px;
   width: 40%;
