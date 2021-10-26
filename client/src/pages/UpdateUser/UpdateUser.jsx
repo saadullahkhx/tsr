@@ -5,7 +5,6 @@ import {
   updateUser,
   getUserDetails,
   clearErrors,
-  loadUser,
 } from "../../redux/actions/userActions";
 
 import { toast } from "react-toastify";

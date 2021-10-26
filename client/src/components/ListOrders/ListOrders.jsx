@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { myOrders, clearErrors } from "../../redux/actions/ordersActions";
 import Loader from "../Loader/Loader";
 import { toast } from "react-toastify";
-import MetaData from "../../MetaData";
 import "./ListOrders.css";
 import { Link } from "react-router-dom";
 import Table from "../Table/Table";

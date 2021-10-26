@@ -4,6 +4,7 @@
 }
 
 .products-list .table-container {
-  width: 90vw;
+  width: 900px;
   border: none;
+  text-align: center;
 }

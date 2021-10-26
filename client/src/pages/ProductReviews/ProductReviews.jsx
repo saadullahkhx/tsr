@@ -12,7 +12,7 @@ import {
   deleteReview,
 } from "../../redux/actions/productsActions";
 import DashboardSidebar from "../../components/DashboardSidebar/DashboardSidebar";
-import { useHistory } from "react-router";
+
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { DELETE_REVIEW_RESET } from "../../redux/constants/productsConstants";
