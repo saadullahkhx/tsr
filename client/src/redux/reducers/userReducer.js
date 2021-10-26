@@ -39,6 +39,11 @@ import {
   DELETE_USER_FAILURE,
   CLEAR_ERRORS,
   DELETE_USER_RESET,
+  VERIFY_EMAIL_REQUEST,
+  VERIFY_EMAIL_SUCCESS,
+  VERIFY_EMAIL_FAILURE,
+  VERIFY_EMAIL_RESET,
+  REGISTER_USER_RESET,
 } from "../constants/userConstants";
 
 export const allUsersReducer = (state = { users: [] }, action) => {
@@ -90,8 +95,15 @@ export const userReducer = (state = { user: {} }, action) => {
         user: null,
       };
 
-    case LOGIN_SUCCESS:
     case REGISTER_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload.message,
+        success: action.payload.success,
+      };
+
+    case LOGIN_SUCCESS:
     case LOAD_USER_SUCCESS:
       return {
         ...state,
@@ -121,6 +133,14 @@ export const userReducer = (state = { user: {} }, action) => {
         loading: false,
         isAuthenticated: false,
         user: null,
+      };
+
+    case REGISTER_USER_RESET:
+      return {
+        ...state,
+        loading: false,
+        message: null,
+        success: false,
       };
 
     case CLEAR_ERRORS:
@@ -228,6 +248,47 @@ export const forgotPasswordReducer = (state = {}, action) => {
         ...state,
         error: null,
       };
+    default:
+      return state;
+  }
+};
+
+export const verifyEmailReducer = (state = {}, action) => {
+  switch (action.type) {
+    case VERIFY_EMAIL_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case VERIFY_EMAIL_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isVerified: action.payload.success,
+        message: action.payload.message,
+      };
+
+    case VERIFY_EMAIL_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        isVerified: false,
+        error: action.payload,
+      };
+
+    case VERIFY_EMAIL_RESET:
+      return {
+        ...state,
+        isVerified: false,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
     default:
       return state;
   }

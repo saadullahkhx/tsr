@@ -7,6 +7,7 @@ import { register, clearErrors } from "../../redux/actions/userActions";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
 import "./Register.css";
+import { REGISTER_USER_RESET } from "../../redux/constants/userConstants";
 
 const Register = () => {
   const [userDetails, setUserDetails] = useState({
@@ -21,18 +22,19 @@ const Register = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { error, isAuthenticated } = useSelector((state) => state.user);
+  const { error, success, message } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      history.push("/");
+    if (success) {
+      toast.success(message);
+      dispatch({ type: REGISTER_USER_RESET });
     }
 
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, history]);
+  }, [dispatch, error, history, message, success]);
 
   const handleChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });

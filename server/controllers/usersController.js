@@ -19,7 +19,62 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
     password,
   });
 
-  sendToken(user, 200, res);
+  const verificationToken = user.getEmailVerificationToken();
+
+  await user.save({ validateBeforeSave: false });
+
+  const verificationUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/email/verify/${verificationToken}`;
+
+  const message = `Your Email verification token is as follows:\n\n${verificationUrl}\n\nIf you did not create account then ignore it.`;
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "TSR Email Verification",
+      message,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: `Email Verification sent to ${user.email}`,
+    });
+  } catch (error) {
+    user.emailVerificationToken = undefined;
+    user.emailVerificationExpire = undefined;
+    await user.save({ validateBeforeSave: false });
+    return next(new ErrorHandler(error.message, 500));
+  }
+});
+
+exports.verifyEmail = asyncHandler(async (req, res, next) => {
+  // Hash url token
+  const emailVerificationToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    emailVerificationToken,
+    emailVerificationExpire: { $gt: Date.now() },
+  });
+
+  if (!user)
+    return next(
+      new ErrorHandler("Email Verification token is invalid or expired", 400)
+    );
+
+  user.isVerified = true;
+  user.emailVerificationToken = undefined;
+  user.emailVerificationExpire = undefined;
+
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    message: "Email Verified! You may log in now.",
+  });
 });
 
 //@POST    api/v1/login
@@ -35,6 +90,9 @@ exports.loginUser = asyncHandler(async (req, res, next) => {
   //Find user in database:
   const user = await User.findOne({ email }).select("+password");
   if (!user) return next(new ErrorHandler("Invalid Email/Password", 401));
+
+  if (user.isVerified === false)
+    return next(new ErrorHandler("Please verify your email", 400));
 
   //Check if password is correct:
   const isPasswordValid = await user.comparePassword(password);

@@ -30,6 +30,7 @@ import UpdateOrder from "./pages/UpdateOrder/UpdateOrder";
 import UsersList from "./pages/UsersList/UsersList";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
 import ProductReviews from "./pages/ProductReviews/ProductReviews";
+import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 
 function App() {
   useEffect(() => {
@@ -47,6 +48,7 @@ function App() {
         <Route path="/login" component={Login} exact />
         <Route path="/sign-up" component={Register} exact />
         <Route path="/password/reset/:token" component={ResetPassword} exact />
+        <Route path="/email/verify/:token" component={VerifyEmail} exact />
         <Route path="/cart" component={Cart} exact />
         <Route
           path="/shipping"

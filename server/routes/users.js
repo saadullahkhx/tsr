@@ -13,6 +13,7 @@ const {
   getUserDetails,
   updateUser,
   deleteUser,
+  verifyEmail,
 } = require("../controllers/usersController");
 
 const { isAuthenticated, authorizeRoles } = require("../middlewares/auth");
@@ -22,6 +23,7 @@ router.post("/login", loginUser);
 router.post("/password/forgot", forgotPassword);
 
 router.put("/password/reset/:token", resetPassword);
+router.put("/email/verify/:token", verifyEmail);
 router.put("/password/update", isAuthenticated, updatePassword);
 router.put("/me/update", isAuthenticated, updateProfile);
 

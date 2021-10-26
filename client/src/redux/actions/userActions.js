@@ -35,6 +35,9 @@ import {
   DELETE_USER_REQUEST,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
+  VERIFY_EMAIL_REQUEST,
+  VERIFY_EMAIL_SUCCESS,
+  VERIFY_EMAIL_FAILURE,
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -66,7 +69,7 @@ export const register = (userData) => async (dispatch) => {
       },
     };
     const { data } = await axios.post("/api/v1/register", userData, config);
-    dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+    dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAILURE,
@@ -258,6 +261,21 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: NEW_PASSWORD_FAILURE,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const verifyEmail = (token) => async (dispatch) => {
+  try {
+    dispatch({ type: VERIFY_EMAIL_REQUEST });
+
+    const { data } = await axios.put(`/api/v1/email/verify/${token}`);
+
+    dispatch({ type: VERIFY_EMAIL_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: VERIFY_EMAIL_FAILURE,
       payload: error.response.data.message,
     });
   }

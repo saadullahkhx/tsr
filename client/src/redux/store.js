@@ -19,6 +19,7 @@ import {
   forgotPasswordReducer,
   allUsersReducer,
   userDetailsReducer,
+  verifyEmailReducer,
 } from "./reducers/userReducer.js";
 
 import {
@@ -48,6 +49,7 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   productReviews: productReviewsReducer,
   review: reviewReducer,
+  verifyEmail: verifyEmailReducer,
 });
 
 let initialState = {
